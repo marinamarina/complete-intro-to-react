@@ -1,6 +1,7 @@
-/* global React ReactDOM */
-var div = React.DOM.div;
+var React = require('react');
+var ReactDOM = require('react-dom');
 var MyTitle = require('./MyTitle');
+var div = React.DOM.div;
 
 var myComponent = div(
   null,
