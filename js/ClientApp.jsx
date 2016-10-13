@@ -1,9 +1,9 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Landing = require('./Landing.jsx');
-const Search = require('./Search.jsx');
+const React = require('react')
+const ReactDOM = require('react-dom')
+const Landing = require('./Landing.jsx')
+const Search = require('./Search.jsx')
 
-const { Router, Route, hashHistory } = require('react-router');
+const { Router, Route, hashHistory } = require('react-router')
 
 const App = () => (
   <Router history={hashHistory}>
@@ -12,4 +12,4 @@ const App = () => (
   </Router>
 )
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'))

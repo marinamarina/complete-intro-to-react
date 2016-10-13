@@ -1,4 +1,4 @@
-const React = require('react');
+const React = require('react')
 
 const Landing = () => (
   <div className='app-container'>
@@ -10,4 +10,4 @@ const Landing = () => (
   </div>
 )
 
-module.exports = Landing;
+module.exports = Landing

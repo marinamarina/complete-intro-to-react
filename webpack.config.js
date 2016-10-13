@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   context: __dirname,
@@ -21,9 +21,9 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         query:
-            {
-              presets:['react']
-            }
+        {
+          presets: ['react']
+        }
       },
       {
         test: /\.json$/,
@@ -32,4 +32,4 @@ module.exports = {
     ]
   }
 
-};
+}
