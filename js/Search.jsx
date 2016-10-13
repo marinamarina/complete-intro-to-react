@@ -4,7 +4,7 @@ const shows = require('../public/data');
 const Search = () => (
   <pre>
     <code>
-      { JSON.strigify(shows, null, 4) }
+      { JSON.stringify(shows, null, 4) }
     </code>
   </pre>
 )
