@@ -5,7 +5,7 @@ const ShowCard = require('./ShowCard.jsx')
 const Search = React.createClass({
   getInitialState () {
     return {
-      searchTerm: 'this is my search term'
+      searchTerm: ''
     }
   },
   handleSearchEvent (event) {
@@ -15,12 +15,14 @@ const Search = React.createClass({
     return (
       <div className='container'>
         <header className='header'>
-          <h1 className='brand'>{this.state.searchTerm}</h1>
+          <h1 className='brand'>svideo</h1>
           <input className='search-input' type='text' placeholder={this.state.searchTerm} onChange={this.handleSearchEvent} />
         </header>
         <div className='shows'>
-          {data.shows.map(show => (
-            <ShowCard {...show} key={show.imdbID} />
+          {data.shows
+            .filter(show => `${show.title} ${show.description}`.toLowerCase().indexOf(this.state.searchTerm.toLowerCase()) >= 0)
+            .map(show => (
+              <ShowCard {...show} key={show.imdbID} />
           ))}
         </div>
       </div>
