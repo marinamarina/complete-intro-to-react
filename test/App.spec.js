@@ -4,7 +4,7 @@ const { expect } = require('chai')
 const React = require('react')
 const Search = require('../js/Search')
 const ShowCard = require('../js/ShowCard')
-const { shallow } = require('enzyme')
+const { shallow, mount } = require('enzyme')
 const { shows } = require('../public/data')
 
 describe('<Search /> component', () => {
@@ -16,5 +16,13 @@ describe('<Search /> component', () => {
   it('should render all the shows in the data', () => {
     const wrapper = shallow(<Search />)
     expect(wrapper.find(ShowCard).length).to.equal(shows.length)
+  })
+
+  it('should apply search filter correctly', () => {
+    const wrapper = mount(<Search />)
+    wrapper.find('.search-input').node.value = 'house'
+    wrapper.find('.search-input').simulate('change')
+    expect(wrapper.find('.show-card').length).to.equal(2)
+    expect(wrapper.state('searchTerm')).to.equal('house')
   })
 })
