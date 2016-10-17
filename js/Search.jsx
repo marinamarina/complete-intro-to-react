@@ -1,5 +1,6 @@
 const React = require('react')
 const ShowCard = require('./ShowCard.jsx')
+const Header = require('./Header.jsx')
 const { object } = React.PropTypes
 
 const Search = React.createClass({
@@ -17,10 +18,7 @@ const Search = React.createClass({
   render () {
     return (
       <div className='container'>
-        <header className='header'>
-          <h1 className='brand'>svideo</h1>
-          <input className='search-input' type='text' placeholder={this.state.searchTerm} onChange={this.handleSearchEvent} />
-        </header>
+        <Header showSearch />
         <div className='shows'>
           {this.props.route.shows
             .filter(show => `${show.title} ${show.description}`.toLowerCase().indexOf(this.state.searchTerm.toLowerCase()) >= 0)
