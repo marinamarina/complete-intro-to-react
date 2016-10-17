@@ -6,15 +6,28 @@ const Layout = require('./Layout.jsx')
 const Details = require('./Details.jsx')
 const { shows } = require('../public/data')
 const { Router, Route, hashHistory, IndexRoute } = require('react-router')
+const { assign } = require('lodash')
 
-const App = () => (
-  <Router history={hashHistory}>
-    <Route path='/' component={Layout} >
-      <IndexRoute component={Landing} />
-      <Route path='/search' component={Search} shows={shows} />
-      <Route path='/show/:id' component={Details} />
-    </Route>
-  </Router>
-)
+const App = React.createClass({
+  chooseShow (nextState, replace) {
+    const showArray = shows.filter(show => show.imdbID === nextState.params.id)
+    if (showArray.length < 1) {
+      return replace('/')
+    }
+    console.log(nextState.params)
+    assign(nextState.params, showArray[0])
+  },
+  render () {
+    return (
+      <Router history={hashHistory}>
+        <Route path='/' component={Layout} >
+          <IndexRoute component={Landing} />
+          <Route path='/search' component={Search} shows={shows} />
+          <Route path='/show/:id' component={Details} onEnter={this.chooseShow} />
+        </Route>
+      </Router>
+    )
+  }
+})
 
 ReactDOM.render(<App />, document.getElementById('app'))
