@@ -25,7 +25,7 @@ const searchTermReducer = (state, action) => {
 const store = redux.createStore(rootReducer)
 
 const mapStateToProps = (state) => {
-  return { searchterm: state.searchterm }
+  return { searchTerm: state.searchTerm }
 }
 
 const mapDispatchToProps = (dispatch) => {
