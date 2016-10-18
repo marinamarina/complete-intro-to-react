@@ -14,7 +14,6 @@ const App = React.createClass({
     if (showArray.length < 1) {
       return replace('/')
     }
-    console.log(nextState.params)
     assign(nextState.params, showArray[0])
   },
   render () {
