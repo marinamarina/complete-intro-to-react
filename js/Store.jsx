@@ -1,4 +1,4 @@
-const React = require('redux')
+const redux = require('redux')
 const reactRedux = require('react-redux')
 const { assign } = require('lodash')
 
@@ -23,3 +23,19 @@ const searchTermReducer = (state, action) => {
 }
 
 const store = redux.createStore(rootReducer)
+
+const mapStateToProps = (state) => {
+  return { searchterm: state.searchterm }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSearchTerm (searchTerm) {
+      dispatch({type: SET_SEARCH_TERM, value: searchTerm})
+    }
+  }
+}
+
+const connector = reactRedux.connect(mapStateToProps, mapDispatchToProps)
+
+module.exports = {connector, store}
