@@ -16,7 +16,7 @@ const Details = React.createClass({
           <p className='video-description'>{description}</p>
         </div>
         <div className='video-container'>
-          <iframe src={`https://www.youtube-nocookie.com/embed/${trailer}?rel=0&amp;cpntrols=0&amp;showinfo=0`} frameBorder='0' allowFullScreen ></iframe>
+          <iframe src={`https://www.youtube-nocookie.com/embed/${trailer}?rel=0&amp;cpntrols=0&amp;showinfo=0`} frameBorder='0' allowFullScreen />
         </div>
       </div>
     )
