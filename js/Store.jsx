@@ -4,7 +4,7 @@ const { assign } = require('lodash')
 
 const SET_SEARCH_TERM = 'setSearchTerm'
 const initialState = {
-  searchterm: ''
+  searchTerm: ''
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -30,7 +30,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setSearchTerm (searchTerm) {
+    setSearchTerm: (searchTerm) => {
       dispatch({type: SET_SEARCH_TERM, value: searchTerm})
     }
   }
