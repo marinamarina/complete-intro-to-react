@@ -11,7 +11,7 @@ const initialState = {searchTerm: ''}
 /*
  * action creators
  */
-const changeSearchTerm = (searchTerm) => { return { type: SET_SEARCH_TERM, value: searchTerm } }
+const changeSearchTerm = (searchTerm) => ({ type: SET_SEARCH_TERM, value: searchTerm })
 
 const mapStateToProps = (state) => {
   return { searchTerm: state.searchTerm }
@@ -22,7 +22,7 @@ const mapStateToProps = (state) => {
 */
 const mapDispatchToProps = (dispatch) => {
   return {
-    setSearchTerm: (searchTerm) => dispatch(changeSearchTerm)
+    setSearchTerm: (searchTerm) => dispatch(changeSearchTerm(searchTerm))
   }
 }
 
