@@ -1,12 +1,16 @@
 const {compose, createStore} = require('redux')
 const reactRedux = require('react-redux')
+const { shows } = require('../public/data')
 const { assign } = require('lodash')
 
 /*
  * action types
  */
 const SET_SEARCH_TERM = 'setSearchTerm'
-const initialState = {searchTerm: ''}
+const initialState = {
+  searchTerm: '',
+  shows: shows
+}
 
 /*
  * action creators
@@ -14,7 +18,10 @@ const initialState = {searchTerm: ''}
 const changeSearchTerm = (searchTerm) => ({ type: SET_SEARCH_TERM, value: searchTerm })
 
 const mapStateToProps = (state) => {
-  return { searchTerm: state.searchTerm }
+  return {
+    searchTerm: state.searchTerm,
+    shows: state.shows
+  }
 }
 
 /*

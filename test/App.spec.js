@@ -2,7 +2,7 @@
 
 const { expect } = require('chai')
 const React = require('react')
-const {rootReducer, store} = require('../js/Store')
+const {rootReducer} = require('../js/Store')
 const Search = require('../js/Search')
 const ShowCard = require('../js/ShowCard')
 const { shallow, mount } = require('enzyme')
