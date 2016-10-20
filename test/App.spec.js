@@ -31,11 +31,11 @@ xdescribe('<Search /> component', () => {
 describe('<Store /> component', () => {
   it('should bootstrap', () => {
     const state = rootReducer(undefined, {type: '@@redux/INIT'})
-    expect(state).to.deep.equal({'searchTerm': ''})
+    expect(state).to.deep.equal({'searchTerm': '', 'shows': shows})
   })
 
   it('should handle setSearchTerm correctly', () => {
     const state = rootReducer(undefined, {type: 'setSearchTerm', value: 'correct'})
-    expect(state).to.deep.equal({'searchTerm': 'correct'})
+    expect(state).to.deep.equal({'searchTerm': 'correct', 'shows': shows})
   })
 })
