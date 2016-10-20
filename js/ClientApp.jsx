@@ -1,5 +1,4 @@
 const React = require('react')
-const ReactDOM = require('react-dom')
 const Landing = require('./Landing.jsx')
 const Search = require('./Search.jsx')
 const Layout = require('./Layout.jsx')
@@ -24,4 +23,4 @@ const App = React.createClass({
   }
 })
 
-ReactDOM.render(<App />, document.getElementById('app'))
+module.exports = App
