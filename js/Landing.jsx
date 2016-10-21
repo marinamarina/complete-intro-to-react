@@ -1,7 +1,7 @@
 const React = require('react')
 const { Link } = require('react-router')
 const { func, string } = React.PropTypes
-const { hashHistory } = require('react-router')
+const { browserHistory } = require('react-router')
 const { connector } = require('./Store.jsx')
 
 const Landing = React.createClass({
@@ -12,7 +12,7 @@ const Landing = React.createClass({
   },
   goToSearch (e) {
     e.preventDefault()
-    hashHistory.push('search')
+    browserHistory.push('search')
   },
   handleSearchEvent (e) {
     this.props.setSearchTerm(e.target.value)

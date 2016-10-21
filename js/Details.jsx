@@ -1,5 +1,6 @@
 const React = require('react')
 const Header = require('./Header.jsx')
+const axios = require('axios')
 const { arrayOf, object } = React.PropTypes
 const { connector } = require('./Store.jsx')
 
