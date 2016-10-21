@@ -4,6 +4,7 @@
   "description": "A two day workshop on a complete intro to React",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "lint": "standard",
     "build": "webpack",
     "test": "mocha --require test/helpers/setup.js ",
@@ -44,6 +45,7 @@
     "json-loader": "^0.5.4",
     "lodash": "^4.6.1",
     "mocha": "^2.4.5",
+    "nodemon": "^1.10.2",
     "nyc": "^6.0.0",
     "react-addons-test-utils": "^0.14.7",
     "sinon": "^1.17.3",
