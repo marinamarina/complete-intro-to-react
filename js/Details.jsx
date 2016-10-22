@@ -9,6 +9,20 @@ const Details = React.createClass({
     shows: arrayOf(object).isRequired,
     params: object
   },
+  getInitialState () {
+    return {
+      omdbData: {}
+    }
+  },
+  componentDidMount () {
+    axios.get(`http://www.omdbapi.com/?i=${this.assignShow(this.props.params.id).imdbID}`)
+    .then((response) => {
+      this.setState({omdbData: response.data})
+    })
+    .catch((error) => {
+      console.error('error', error)
+    })
+  },
   assignShow (id) {
     return this.props.shows.filter(show => show.imdbID === id)[0]
   },
@@ -21,7 +35,8 @@ const Details = React.createClass({
         <div className='video-info'>
           <h1 className='video-title'>{title}</h1>
           <h2 className='video-year'>({year})</h2>
-          <img src={`public/img/posters/${poster}`} className='video-poster' />
+          <h3 className='video-year'>{this.state.omdbData.imdbRating}</h3>
+          <img src={`/public/img/posters/${poster}`} className='video-poster' />
           <p className='video-description'>{description}</p>
         </div>
         <div className='video-container'>
