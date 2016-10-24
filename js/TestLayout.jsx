@@ -1,7 +1,7 @@
 const React = require('react')
 
 const TestLayout = (props) => (
-  <div className='kukushka'>
+  <div className='cat'>
     {props.children}
   </div>
 )

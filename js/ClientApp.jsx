@@ -2,6 +2,7 @@ const React = require('react')
 const Landing = require('./Landing.jsx')
 const Search = require('./Search.jsx')
 const Layout = require('./Layout.jsx')
+const TestLayout = require('./TestLayout.jsx')
 const Details = require('./Details.jsx')
 const { Router, Route, IndexRoute, browserHistory } = require('react-router')
 const { store } = require('./Store.jsx')
@@ -12,6 +13,10 @@ const myRoutes = () => (
     <IndexRoute component={Landing} />
     <Route path='/search' component={Search} />
     <Route path='/show/:id' component={Details} />
+    <Route path='/my' component={TestLayout}>
+      <IndexRoute component={Landing} />
+      <Route path='cat' component={Search} />
+    </Route>
   </Route>
 )
 
