@@ -3,7 +3,7 @@ const { Link } = require('react-router')
 
 const ShowCard = (props) => (
   <div className='show-card'>
-    <img src={`public/img/posters/${props.poster}`} className='show-card-img' />
+    <img src={`/public/img/posters/${props.poster}`} className='show-card-img' />
     <div className='show-card-text'>
       <Link className='show-card-title' to={`/show/${props.imdbID}`}>{props.title} </Link>
       <h4 className='show-card-year'>({props.year}) </h4>

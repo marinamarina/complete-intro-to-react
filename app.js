@@ -16,14 +16,15 @@ const port = 5050
 const baseTemplate = fs.readFileSync('./index.html')
 const template = _.template(baseTemplate)
 const ClientApp = require('./js/ClientApp.jsx')
-const Routes = ClientApp.Routes
+const routes = ClientApp.Routes
 
 const app = express()
 
 app.use('/public', express.static('./public'))
 
 app.use((req, res) => {
-  match({ routes: Routes(), location: req.url }, (error, redirectLocation, renderProps) => {
+// routes is now a configuration object
+  match({ routes: routes, location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
       res.status(500).send(error.message)
     } else if (redirectLocation) {

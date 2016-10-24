@@ -4,8 +4,9 @@ module.exports = {
   context: __dirname,
   entry: './js/BrowserEntry.jsx',
   output: {
-    path: path.join(__dirname, 'public'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, '/public'),
+    filename: 'bundle.js',
+    publicPath: '/public/'
   },
   resolve: {
     extentions: ['', 'js', 'jsx', 'json']
@@ -13,17 +14,14 @@ module.exports = {
   stats: {
     colors: true,
     reasons: true,
-    chunks: false
+    chunks: true
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        query:
-        {
-          presets: ['react']
-        }
+        include: path.join(__dirname, '/js')
       },
       {
         test: /\.json$/,
