@@ -60,29 +60,6 @@ const rootRoute = {
   ]
 }
 
-
-const nestedRoute = {
-  component: TestLayout,
-  path: 'my',
-  indexRoute: {
-    getComponent (location, cb) {
-      require.ensure([], (error) => {
-        cb(null, require('./Landing.jsx'))
-      })
-    }
-  },
-  childRoutes: [
-    {
-      path: 'cat',
-      getComponent (location, cb) {
-        require.ensure([], (error) => {
-          cb(null, require('./Search.jsx'))
-        })
-      }
-    }
-  ]
-};
-
 const App = React.createClass({
   render () {
     return (
