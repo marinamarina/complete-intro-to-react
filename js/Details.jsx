@@ -1,23 +1,20 @@
 const React = require('react')
 const Header = require('./Header.jsx')
 const axios = require('axios')
-const { arrayOf, object } = React.PropTypes
+const { arrayOf, object, func } = React.PropTypes
 const { connector } = require('./Store.jsx')
 
 const Details = React.createClass({
   propTypes: {
     shows: arrayOf(object).isRequired,
+    setOmdbData: func,
+    omdbData: object,
     params: object
-  },
-  getInitialState () {
-    return {
-      omdbData: {}
-    }
   },
   componentDidMount () {
     axios.get(`http://www.omdbapi.com/?i=${this.assignShow(this.props.params.id).imdbID}`)
     .then((response) => {
-      this.setState({omdbData: response.data})
+      this.props.setOmdbData(response.data)
     })
     .catch((error) => {
       console.error('error', error)
@@ -35,7 +32,7 @@ const Details = React.createClass({
         <div className='video-info'>
           <h1 className='video-title'>{title}</h1>
           <h2 className='video-year'>({year})</h2>
-          <h3 className='video-year'>{this.state.omdbData.imdbRating}</h3>
+          <h3 className='video-year'>{this.props.omdbData.imdbRating}</h3>
           <img src={`/public/img/posters/${poster}`} className='video-poster' />
           <p className='video-description'>{description}</p>
         </div>
