@@ -1,7 +1,7 @@
 const React = require('react')
 const { Link } = require('react-router')
 const { func, bool, string } = React.PropTypes
-const { connector } = require('./Store.jsx')
+const { connector } = require('./Store')
 
 const Header = React.createClass({
   propTypes: {

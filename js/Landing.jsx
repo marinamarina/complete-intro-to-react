@@ -2,7 +2,7 @@ const React = require('react')
 const { Link } = require('react-router')
 const { func, string } = React.PropTypes
 const { browserHistory } = require('react-router')
-const { connector } = require('./Store.jsx')
+const { connector } = require('./Store')
 
 const Landing = React.createClass({
   propTypes: {

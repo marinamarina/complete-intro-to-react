@@ -9,7 +9,7 @@ module.exports = {
     publicPath: '/public/'
   },
   resolve: {
-    extentions: ['', 'js', 'jsx', 'json']
+    extensions: ['', '.js', '.jsx', '.json']
   },
   stats: {
     colors: true,

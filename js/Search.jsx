@@ -1,8 +1,8 @@
 const React = require('react')
-const ShowCard = require('./ShowCard.jsx')
-const Header = require('./Header.jsx')
+const ShowCard = require('./ShowCard')
+const Header = require('./Header')
 const { arrayOf, object, string } = React.PropTypes
-const { connector } = require('./Store.jsx')
+const { connector } = require('./Store')
 
 const Search = React.createClass({
   propTypes: {

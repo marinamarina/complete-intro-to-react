@@ -1,8 +1,8 @@
 const React = require('react')
-const Layout = require('./Layout.jsx')
-const TestLayout = require('./TestLayout.jsx')
+const Layout = require('./Layout')
+const TestLayout = require('./TestLayout')
 const { Router, browserHistory } = require('react-router')
-const { store } = require('./Store.jsx')
+const { store } = require('./Store')
 const { Provider } = require('react-redux')
 
 if (typeof module !== 'undefined' && module.require) {
@@ -18,7 +18,7 @@ const rootRoute = {
   indexRoute: {
     getComponent (location, cb) {
       require.ensure([], (error) => {
-        cb(null, require('./Landing.jsx'))
+        cb(null, require('./Landing'))
       })
     }
   },
@@ -27,7 +27,7 @@ const rootRoute = {
       path: 'search',
       getComponent (location, cb) {
         require.ensure([], (error) => {
-          cb(null, require('./Search.jsx'))
+          cb(null, require('./Search'))
         })
       }
     },
@@ -35,7 +35,7 @@ const rootRoute = {
       path: 'show/:id',
       getComponent (location, cb) {
         require.ensure([], (error) => {
-          cb(null, require('./Details.jsx'))
+          cb(null, require('./Details'))
         })
       }
     },
@@ -43,7 +43,7 @@ const rootRoute = {
       path: 'my',
       getComponent (location, cb) {
         require.ensure([], (error) => {
-          cb(null, require('./TestLayout.jsx'))
+          cb(null, require('./TestLayout'))
         })
       },
       childRoutes: [
@@ -51,7 +51,7 @@ const rootRoute = {
           path: 'cat',
           getComponent (location, cb) {
             require.ensure([], (error) => {
-              cb(null, require('./Search.jsx'))
+              cb(null, require('./Search'))
             })
           }
         }
